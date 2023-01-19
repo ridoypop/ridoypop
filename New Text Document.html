@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Request</title>
+</head>
+<body>
+  <script>
+    const data = [
+    {
+		"policyNumber" : "1889001032-8",
+		"projectCode" : "ALA",
+		"policyHolderName" : "MST. ZAHEDA KHATUN",
+		"dateOfBirth" : "1979-05-05",
+		"policyStartDate" : "2022-09-27",
+		"policyEndDate" : "2034-09-27",
+		"riskStartDate" : "2022-09-29",
+		"term" : "12",
+		"assuredSum" : "56000.00",
+		"totalPremium" : "5018.00",
+		"noOfPaidInstallment" : "1",
+		"totalPaidAmount" : "5018.00",
+		"status" : "",
+		"email" : "",
+		"address" : "W\/O : MD. ABDUL JALIL  VILL : CHARNIAMOT  P.O : GOADANGA  P.S : FULPUR  DIST : MYMENSINGH  MOB : 01821653190",
+		"postalCode" : "",
+		"district" : "",
+		"gender" : "Female",
+		"mobileNumber" : "01821653190",
+		"policyType" : "Akok",
+		"productName" : "Endowment Assurance Plan - With Profit",
+		"productCode" : "01",
+		"premiumMode" : "Yly",
+		"lifePremium" : "5018.00",
+		"supplyPremium" : "0.00",
+		"externalLoad" : "0.00",
+		"nextPremiumDueDate" : "2023-09-27",
+		"identificationType" : "",
+		"identificationNumber" : "",
+		"agentId" : "01624801",
+		"agentMobileNumber" : "",
+		"agentName" : "",
+		"sumAtRisk" : "0",
+		"policyOption" : "",
+		"surrenderDate" : ""
+	},
+	{
+		"policyNumber" : "1897000179-2",
+		"projectCode" : "ALA",
+		"policyHolderName" : "SAHALOM",
+		"dateOfBirth" : "1984-06-10",
+		"policyStartDate" : "2022-09-28",
+		"policyEndDate" : "2037-09-28",
+		"riskStartDate" : "2022-09-28",
+		"term" : "15",
+		"assuredSum" : "180000.00",
+		"totalPremium" : "12600.00",
+		"noOfPaidInstallment" : "1",
+		"totalPaidAmount" : "12600.00",
+		"status" : "",
+		"email" : "",
+		"address" : "S\/O : ABDUL HAMID  VILL : SONAPUR  P.O : SOLLA  P.S : NAWABGANJ  DIST : DHAKA  MOB - 01892805841",
+		"postalCode" : "",
+		"district" : "",
+		"gender" : "Male",
+		"mobileNumber" : "01892805841",
+		"policyType" : "Akok",
+		"productName" : "Endowment Assurance Plan - With Profit",
+		"productCode" : "01",
+		"premiumMode" : "Yly",
+		"lifePremium" : "12600.00",
+		"supplyPremium" : "0.00",
+		"externalLoad" : "0.00",
+		"nextPremiumDueDate" : "2023-09-28",
+		"identificationType" : "",
+		"identificationNumber" : "",
+		"agentId" : "00126306",
+		"agentMobileNumber" : "",
+		"agentName" : "",
+		"sumAtRisk" : "0",
+		"policyOption" : "",
+		"surrenderDate" : ""
+	}];
+
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBvcHVsYXIiLCJyb2xlIjoiTGlmZSIsImlhdCI6MTY3NDEwNDQwNywiZXhwIjoxNjc0MTkwODA3fQ.3ePQAXo0GkLa5dafjTaxMd4E3n4JEI_r-NHLdYQTOZA';
+
+    // Iterate over the data and make separate requests
+    data.forEach((item) => {
+      fetch('https://idra-ump.com/api/extern/v1/policy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(item)
+      })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Success');
+        } else {
+          console.log('Error');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    });
+  </script>
+</body>
+</html>
